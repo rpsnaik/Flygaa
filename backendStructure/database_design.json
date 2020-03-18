@@ -1,0 +1,214 @@
+{
+    "users": [
+        // SubDocuments
+        {
+            "uid": "String",
+            "name": "String",
+            "dateOfBirth": "TimeStamp",
+            "phoneNumber": "String",
+            "emailId": "String",
+            "gender": "String (male/female/others)",
+            "userProfileImage": "String",
+            "governmentId": [
+                // Array<Map>
+                {
+                    "idIssuedCountry": "CountryCode",
+                    "idType": "idRef",
+                    "idFrontSidePic": "String (Url)",
+                    "idBackSidePic": "String (Url)"
+                }
+            ],
+            "emergencyContact": [
+                // Array<Map>
+                {
+                    "legalName": "String",
+                    "relationShip": "String",
+                    "phoneNumber": "String",
+                    "languagePreferred": "LanguageId"
+                }
+            ],
+            "bookings": [
+                // SubDocuments
+                {
+                    "bookingId": "String",
+                    "bookedOn": "TimeStamp",
+
+                    "destinationId": "String",
+                    "countryId": "String",
+                    "countryName": "String",
+                    "stateName": "String",
+                    "districtName": "String",
+                    "name": "String",
+                    "shortDescription": "String",
+
+                    "policiesApplicable": "Array<PolicyId>",
+                    "pickUpFrom": "String",
+
+                    "transactionDetails": "String"
+                    
+                }
+            ],
+            "destinationsSavedForLater": [
+                // Array<Map>
+                {
+                    "destinationId": "String",
+                    "savedOn": "TimeStamp"
+                }
+            ]
+        }
+    ],
+    "transactionDetails": [
+        // SubDocuments
+        {
+            "transactionId": "String",
+            "amountPaid": "String"
+            // Other Info
+        }
+    ],
+    "guiders": [
+        // SubDocuments
+        {
+            "guideId": "String",
+            "guideName": "String",
+            "dateOfBirth": "TimeStamp",
+            "phoneNumber": "String",
+            "emailId": "String",
+            "gender": "String (male/female/others)",
+            "userProfileImage": "String",
+            "shortBio": "String",
+            "joinedOn": "TimeStamp",
+            "governmentId": [
+                // Array<Map>
+                {
+                    "idIssuedCountry": "CountryCode",
+                    "idType": "idRef",
+                    "idFrontSidePic": "String (Url)",
+                    "idBackSidePic": "String (Url)"
+                }
+            ]
+        }
+    ],
+    // Location Data :- B Plan : 2
+    "destinations": [
+        // SubDocuments
+        {
+            "destinationId": "String",
+            "destinationPincode": "String",
+            "countryId": "String",
+            "countryName": "String",
+            "stateId": "String",
+            "stateName": "String",
+            "districtId": "String",
+            "districtName": "String",
+            "name": "String",
+            "shortDescription": "String",
+            "longDescription": "String",
+            "languagesSpokenHere": [
+                // Array<Map>
+                {
+                    "languageCode": "LanguageCode"
+                }
+            ],
+            "countOfReviews": "Integer",
+            "userReviews": [
+                // SubDocuments
+                {
+                    "reviewId": "String",
+                    "reviewText": "String",
+                    "reviewProvidedOn": "TimeStamp",
+                    "ratedAs": "Integer",
+                    "picsAdded": [
+                        // Array<<Map>
+                        {
+                            "picUrl": "String",
+                            "picCaption": "String"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "hotels": [
+        // SubDocumets
+        {
+            "hotelId": "String",
+            "hotelName": "String",
+            "locatedAtDestination": "String",
+            "hotelDescription": "String",
+            "wifi": "bool",
+            "kitchen": "bool",
+            "ac": "bool",
+            "nonAc": "bool",
+            "latitude": "Float",
+            "longitude": "Float",
+            "verifiedByHotel": "bool",
+            "userReviews": [
+                // SubDocuments
+                {
+                    "reviewId": "String",
+                    "reviewText": "String",
+                    "reviewProvidedOn": "TimeStamp",
+                    "ratedAs": "Integer",
+                    "picsAdded": [
+                        // Array<<Map>
+                        {
+                            "picUrl": "String",
+                            "picCaption": "String"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "tours": [
+        // SubDocument
+        {
+            "tourId": "String",
+            "tourTagLine": "String",
+            "tourShortTagLine": "String",
+            "tourToDestination": "String",
+            "whatWeWillBeDoing": "String",
+            "costPerPerson": "Integer",
+            "itinerary": [
+                // Subdocument
+                {
+                    "day": "Integer (1, 2, 3...)",
+                    "title": "String",
+                    "imgLink": "String (URL)",
+                    "whatWeWillDo": "String"
+                }
+            ],
+            "featuredPics": [
+                // Array<Map>
+                {
+                    "featuredImageUrl": "String",
+                    "featuredTitle": "String"
+                }
+            ],
+            "categories": [
+                // Array<Map>
+                {
+                    "categoryTitle": "String"
+                }
+            ],
+            "durationOfTrip": "Integer (Hrs)",
+            "hostedInLanguages": [
+                // Array<Map>
+                {
+                    "languageCode": "String (LanguageCode)"
+                }
+            ],
+            "yourGuideId": "String",
+            "guideWordsOnThisTrip": "String",
+            "policiesIncluded": "Array<PolicyId>"
+        }
+    ],
+    "policies": [
+        {
+            "policyId": "String",
+            "policyTitle": "String",
+            "policyShortDes": "String",
+            "policyCompleteDes": "String"
+        }
+    ]
+}
