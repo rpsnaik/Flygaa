@@ -24,28 +24,14 @@
                     "legalName": "String",
                     "relationShip": "String",
                     "phoneNumber": "String",
-                    "languagePreferred": "LanguageId"
+                    "languagePreferred": "LanguageCode"
                 }
             ],
-            "bookings": [
+            "yourBookings": [
                 // SubDocuments
                 {
                     "bookingId": "String",
-                    "bookedOn": "TimeStamp",
-
-                    "destinationId": "String",
-                    "countryId": "String",
-                    "countryName": "String",
-                    "stateName": "String",
-                    "districtName": "String",
-                    "name": "String",
-                    "shortDescription": "String",
-
-                    "policiesApplicable": "Array<PolicyId>",
-                    "pickUpFrom": "String",
-
-                    "transactionDetails": "String"
-                    
+                    "bookedOn": "TimeStamp"
                 }
             ],
             "destinationsSavedForLater": [
@@ -53,6 +39,34 @@
                 {
                     "destinationId": "String",
                     "savedOn": "TimeStamp"
+                }
+            ]
+        }
+    ],
+    "bookings": [
+        // SubDocuments
+        {
+            "bookingId": "String",
+            "bookedOn": "TimeStamp",
+            "destinationId": "String",
+            "countryId": "String",
+            "countryName": "String",
+            "stateName": "String",
+            "districtName": "String",
+            "name": "String",
+            "shortDescription": "String",
+            "type": "attraction || tour",
+            "policiesApplicable": "Array<PolicyId>",
+            "pickUpFrom": "String",
+            "transactionDetails": "String",
+            "visitorsData": [
+                // SubDocument
+                {
+                    "visitorId": "String",
+                    "primary": "bool",
+                    "uid": "String",
+                    "legalName": "String",
+                    "age": "String"
                 }
             ]
         }
@@ -77,6 +91,11 @@
             "userProfileImage": "String",
             "shortBio": "String",
             "joinedOn": "TimeStamp",
+            "livesInCountry": "String",
+            "livesInCity": "String",
+            "languagesCanBeSpoken": "Array<LanguageCode>",
+            "workPosition": "String",
+            "workOrganization": "String",
             "governmentId": [
                 // Array<Map>
                 {
@@ -84,6 +103,15 @@
                     "idType": "idRef",
                     "idFrontSidePic": "String (Url)",
                     "idBackSidePic": "String (Url)"
+                }
+            ],
+            "userReviews": [
+                // SubDocuments
+                {
+                    "reviewId": "String",
+                    "reviewText": "String",
+                    "reviewProvidedOn": "TimeStamp",
+                    "ratedAs": "Integer"
                 }
             ]
         }
@@ -160,6 +188,49 @@
             ]
         }
     ],
+    "attractions": [
+        // SubDocument        
+        {
+            "attractionId": "String",
+            "attractionTagLine": "String",
+            "attractionShortTagLine": "String",
+            "attractionToDestination": "String",
+            "whatWeWillBeDoing": "String",
+            "costPerPerson": "Integer",
+            "itinerary": [
+                // Subdocument
+                {
+                    "day": "Integer (1, 2, 3...)",
+                    "title": "String",
+                    "imgLink": "String (URL)",
+                    "whatWeWillDo": "String"
+                }
+            ],
+            "featuredPics": [
+                // Array<Map>
+                {
+                    "featuredImageUrl": "String",
+                    "featuredTitle": "String"
+                }
+            ],
+            "categories": [
+                // Array<Map>
+                {
+                    "categoryTitle": "String"
+                }
+            ],
+            "durationOfTrip": "Integer (Hrs)",
+            "hostedInLanguages": [
+                // Array<Map>
+                {
+                    "languageCode": "String (LanguageCode)"
+                }
+            ],
+            "yourGuideId": "String",
+            "guideWordsOnThisTrip": "String",
+            "policiesIncluded": "Array<PolicyId>"
+        }
+    ],
     "tours": [
         // SubDocument
         {
@@ -212,3 +283,7 @@
         }
     ]
 }
+
+// TODO :: Make JSON Representation of Languages
+// TODO :: Make JSON Representation of Policies
+// TODO :: Make IdRef for Identity verification
