@@ -1,4 +1,4 @@
-package in.flygaa.flygaa_app
+package `in`.flygaa.flygaa_app
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

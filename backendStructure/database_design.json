@@ -34,7 +34,7 @@
                     "bookedOn": "TimeStamp"
                 }
             ],
-            "destinationsSavedForLater": [
+            "favirouteDestinations": [
                 // Array<Map>
                 {
                     "destinationId": "String",
@@ -47,6 +47,7 @@
         // SubDocuments
         {
             "bookingId": "String",
+            "bookedByUser": "String",
             "bookedOn": "TimeStamp",
             "destinationId": "String",
             "countryId": "String",
@@ -60,7 +61,7 @@
             "pickUpFrom": "String",
             "transactionDetails": "String",
             "visitorsData": [
-                // SubDocument
+                // SubDocuments
                 {
                     "visitorId": "String",
                     "primary": "bool",
@@ -280,6 +281,23 @@
             "policyTitle": "String",
             "policyShortDes": "String",
             "policyCompleteDes": "String"
+        }
+    ],
+
+
+
+
+
+    // DataforApp UI Floating in HomePage
+    "popularTravelSection": [
+        // SubDocument
+        {
+            "destinationId": "String"
+        }
+    ],
+    "popularTrips": [
+        {
+            "tourId": "String"
         }
     ]
 }
