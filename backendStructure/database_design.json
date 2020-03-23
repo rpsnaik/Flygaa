@@ -9,6 +9,7 @@
             "emailId": "String",
             "gender": "String (male/female/others)",
             "userProfileImage": "String",
+            
             "governmentId": [
                 // Array<Map>
                 {
