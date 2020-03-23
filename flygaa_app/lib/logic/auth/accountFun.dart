@@ -65,6 +65,19 @@ class AccountFun{
     bool isDataSet = false;
     await Firestore.instance.collection("users").document(user.uid).setData({
       
+      "uid": user.uid,
+      "name": user.displayName,
+      "dateOfBirth": null,
+      "phoneNumber": user.phoneNumber,
+      "emailId": user.email,
+      "gender": null,
+      "userProfileImage": user.photoUrl,
+
+      "governmentId": null,
+      "emergencyContact": null,
+      "yourBookings": null,
+      "favirouteDestinations": null
+
     }).then((E){
       isDataSet = true;
     }).catchError((e){

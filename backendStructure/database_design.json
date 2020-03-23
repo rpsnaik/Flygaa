@@ -27,7 +27,14 @@
                     "languagePreferred": "LanguageCode"
                 }
             ],
-            "yourBookings": [
+            "yourTourBookings": [
+                // SubDocuments
+                {
+                    "bookingId": "String",
+                    "bookedOn": "TimeStamp"
+                }
+            ],
+            "yourAttractionsBookings": [
                 // SubDocuments
                 {
                     "bookingId": "String",
@@ -43,7 +50,7 @@
             ]
         }
     ],
-    "bookings": [
+    "tourBookings": [
         // SubDocuments
         {
             "bookingId": "String",
@@ -55,6 +62,37 @@
             "stateName": "String",
             "districtName": "String",
             "name": "String",
+            "thumbnail": "String",
+            "shortDescription": "String",
+            "type": "attraction || tour",
+            "policiesApplicable": "Array<PolicyId>",
+            "pickUpFrom": "String",
+            "transactionDetails": "String",
+            "visitorsData": [
+                // SubDocuments
+                {
+                    "visitorId": "String",
+                    "primary": "bool",
+                    "uid": "String",
+                    "legalName": "String",
+                    "age": "String"
+                }
+            ]
+        }
+    ],
+    "attractionsBooking": [
+        // SubDocuments
+        {
+            "bookingId": "String",
+            "bookedByUser": "String",
+            "bookedOn": "TimeStamp",
+            "attractionId": "String",
+            "countryId": "String",
+            "countryName": "String",
+            "stateName": "String",
+            "districtName": "String",
+            "name": "String",
+            "thumbnail": "String",
             "shortDescription": "String",
             "type": "attraction || tour",
             "policiesApplicable": "Array<PolicyId>",
@@ -130,6 +168,13 @@
             "districtId": "String",
             "districtName": "String",
             "name": "String",
+            "featuredPics": [
+                // Array<Map>
+                {
+                    "featuredImageUrl": "String",
+                    "featuredTitle": "String"
+                }
+            ],
             "shortDescription": "String",
             "longDescription": "String",
             "languagesSpokenHere": [
@@ -171,6 +216,7 @@
             "latitude": "Float",
             "longitude": "Float",
             "verifiedByHotel": "bool",
+            
             "userReviews": [
                 // SubDocuments
                 {
@@ -197,7 +243,8 @@
             "attractionShortTagLine": "String",
             "attractionToDestination": "String",
             "whatWeWillBeDoing": "String",
-            "costPerPerson": "Integer",
+            "initialPrice": "Integer",
+            "offerPrice": "Integer",
             "itinerary": [
                 // Subdocument
                 {
@@ -220,7 +267,7 @@
                     "categoryTitle": "String"
                 }
             ],
-            "durationOfTrip": "Integer (Hrs)",
+            "durationOfAttraction": "Integer (Hrs)",
             "hostedInLanguages": [
                 // Array<Map>
                 {
@@ -240,7 +287,9 @@
             "tourShortTagLine": "String",
             "tourToDestination": "String",
             "whatWeWillBeDoing": "String",
-            "costPerPerson": "Integer",
+            "pricePerPerson": "Integer",
+            "offerPricePerPerson": "Integer",
+        
             "itinerary": [
                 // Subdocument
                 {
@@ -289,17 +338,31 @@
 
 
     // DataforApp UI Floating in HomePage
-    "popularTravelSection": [
+    "popularAttractions": [
         // SubDocument
         {
-            "destinationId": "String"
+            "attractionId": "String"
         }
     ],
-    "popularTrips": [
+    "popularTours": [
+        // SubDocument
+        {
+            "tourId": "String"
+        }
+    ],
+    "bestAttractionsOffers": [
+        // SubDocument
+        {
+            "attractionId": "String"
+        }
+    ],
+    "bestTourOffers": [
+        // SubDocument
         {
             "tourId": "String"
         }
     ]
+    
 }
 
 // TODO :: Make JSON Representation of Languages

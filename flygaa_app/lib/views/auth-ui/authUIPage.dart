@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flygaa_app/views/auth-ui/phoneNumberSignIn.dart';
 
 class AuthUIPage extends StatefulWidget {
   @override
@@ -11,10 +12,21 @@ class _AuthUIPageState extends State<AuthUIPage> {
     return Scaffold(
       body: Container(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            
+            RaisedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>PhonNumberSignInPage()));
+              },
+              child: Text("Phone Number SignIn"),
+            ),
+            // RaisedButton(
+            //   onPressed: (){  
+            //     GoogleAuth().signInwithGoogle(context);
+            //   },
+            //   child: Text("Sign in with Google")
+            // )
           ],
         )
       )
