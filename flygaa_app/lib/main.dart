@@ -6,6 +6,10 @@ void main(){
     MaterialApp(
       title: "Flygaa Application",
       home: SplashScreen(),
+      theme: ThemeData(
+        primaryColor: Colors.white,
+        fontFamily: 'Nunito Sans Regular',
+      ),
     )
   );
 }

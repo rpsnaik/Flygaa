@@ -81,7 +81,7 @@
             ]
         }
     ],
-    "attractionsBooking": [
+    "attractionsBookings": [
         // SubDocuments
         {
             "bookingId": "String",
@@ -164,9 +164,7 @@
             "destinationPincode": "String",
             "countryId": "String",
             "countryName": "String",
-            "stateId": "String",
             "stateName": "String",
-            "districtId": "String",
             "districtName": "String",
             "name": "String",
             "featuredPics": [
@@ -242,7 +240,7 @@
             "attractionId": "String",
             "attractionTagLine": "String",
             "attractionShortTagLine": "String",
-            "attractionToDestination": "String",
+            "attractionDestination": "String",
             "whatWeWillBeDoing": "String",
             "initialPrice": "Integer",
             "offerPrice": "Integer",
@@ -263,14 +261,14 @@
                 }
             ],
             "categories": [
-                // Array<Map>
+                // Array<String>
                 {
                     "categoryTitle": "String"
                 }
             ],
             "durationOfAttraction": "Integer (Hrs)",
             "hostedInLanguages": [
-                // Array<Map>
+                // Array<Integer>
                 {
                     "languageCode": "String (LanguageCode)"
                 }
@@ -313,7 +311,7 @@
                     "categoryTitle": "String"
                 }
             ],
-            "durationOfTrip": "Integer (Hrs)",
+            "durationOfTour": "Integer (Hrs)",
             "hostedInLanguages": [
                 // Array<Map>
                 {
@@ -337,32 +335,74 @@
 
 
 
-
     // DataforApp UI Floating in HomePage
-    "popularAttractions": [
-        // SubDocument
-        {
-            "attractionId": "String"
-        }
-    ],
-    "popularTours": [
-        // SubDocument
-        {
-            "tourId": "String"
-        }
-    ],
-    "bestAttractionsOffers": [
-        // SubDocument
-        {
-            "attractionId": "String"
-        }
-    ],
-    "bestTourOffers": [
-        // SubDocument
-        {
-            "tourId": "String"
-        }
-    ]
+
+    "appDataUIModel": {
+        // SubDocumets - Related to Destinations
+
+        "popularDestinations": [
+            {
+                "destinationId": "String",
+                "destinationName": "String",
+                "thumbnail": "String",
+                "state": "String",
+                "country": "String",
+                "tagLine": "String"
+            }
+        ],
+
+        // SubDocuemt - Related to Tours
+
+        "popularAttractions": [
+            {
+                "attractionId": "String",
+                "attractionTagLine": "String",
+                "attractionShortTagLine": "String",
+                "attractionThumbnailUrl": "String",
+                "attractionCountry": "String",
+                "attractionState": "String",
+                "price": "Integer",
+                "numberOfHours": "Integer"
+            }
+        ],
+        "popularTours": [
+            {
+                "tourId": "String",
+                "tourTagLine": "String",
+                "tourShortTagLine": "String",
+                "country": "String",
+                "state": "String",
+                "rating": "String",
+                "pricePerPerson": "Integer"
+            }
+        ],
+
+        "bestAttractionOffers": [
+            {
+                "attractionId": "String",
+                "attractionTagLine": "String",
+                "attractionShortTagLine": "String",
+                "attractionThumbnailUrl": "String",
+                "attractionCountry": "String",
+                "attractionState": "String",
+                "price": "Integer",
+                "numberOfHours": "Integer"
+            }
+        ],
+        "bestTourOffers": [
+            {
+                "tourId": "String",
+                "tourTagLine": "String",
+                "tourShortTagLine": "String",
+                "country": "String",
+                "state": "String",
+                "rating": "String",
+                "pricePerPerson": "Integer"
+            }
+        ]
+
+    }
+
     
 }
 
