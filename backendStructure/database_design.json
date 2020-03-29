@@ -65,7 +65,7 @@
             "name": "String",
             "thumbnail": "String",
             "shortDescription": "String",
-            "type": "attraction || tour",
+            
             "policiesApplicable": "Array<PolicyId>",
             "pickUpFrom": "String",
             "transactionDetails": "String",
@@ -95,7 +95,6 @@
             "name": "String",
             "thumbnail": "String",
             "shortDescription": "String",
-            "type": "attraction || tour",
             "policiesApplicable": "Array<PolicyId>",
             "pickUpFrom": "String",
             "transactionDetails": "String",
@@ -340,66 +339,71 @@
     "appDataUIModel": {
         // SubDocumets - Related to Destinations
 
-        "popularDestinations": [
-            {
-                "destinationId": "String",
-                "destinationName": "String",
-                "thumbnail": "String",
-                "state": "String",
-                "country": "String",
-                "tagLine": "String"
-            }
-        ],
+        "destinationData": {
+            "popularDestinations": [
+                {
+                    "destinationId": "String",
+                    "destinationName": "String",
+                    "thumbnail": "String",
+                    "state": "String",
+                    "country": "String",
+                    "tagLine": "String"
+                }
+            ]
+        },
 
         // SubDocuemt - Related to Tours
 
-        "popularAttractions": [
-            {
-                "attractionId": "String",
-                "attractionTagLine": "String",
-                "attractionShortTagLine": "String",
-                "attractionThumbnailUrl": "String",
-                "attractionCountry": "String",
-                "attractionState": "String",
-                "price": "Integer",
-                "numberOfHours": "Integer"
-            }
-        ],
-        "popularTours": [
-            {
-                "tourId": "String",
-                "tourTagLine": "String",
-                "tourShortTagLine": "String",
-                "country": "String",
-                "state": "String",
-                "rating": "String",
-                "pricePerPerson": "Integer"
-            }
-        ],
+        "touristData": {
+            "popularAttractions": [
+                {
+                    "attractionId": "String",
+                    "attractionTagLine": "String",
+                    "attractionShortTagLine": "String",
+                    "attractionThumbnailUrl": "String",
+                    "attractionCountry": "String",
+                    "attractionState": "String",
+                    "pricePerPerson": "Integer",
+                    "numberOfHours": "Integer"
+                }
+            ],
+            "popularTours": [
+                {
+                    "tourId": "String",
+                    "tourTagLine": "String",
+                    "tourShortTagLine": "String",
+                    "country": "String",
+                    "state": "String",
+                    "rating": "String",
+                    "pricePerPerson": "Integer"
+                }
+            ],
+    
+            "bestAttractionOffers": [
+                {
+                    "attractionId": "String",
+                    "attractionTagLine": "String",
+                    "attractionShortTagLine": "String",
+                    "attractionThumbnailUrl": "String",
+                    "attractionCountry": "String",
+                    "attractionState": "String",
+                    "price": "Integer",
+                    "numberOfHours": "Integer"
+                }
+            ],
+            "bestTourOffers": [
+                {
+                    "tourId": "String",
+                    "tourTagLine": "String",
+                    "tourShortTagLine": "String",
+                    "country": "String",
+                    "state": "String",
+                    "rating": "String",
+                    "pricePerPerson": "Integer"
+                }
+            ]
+        }
 
-        "bestAttractionOffers": [
-            {
-                "attractionId": "String",
-                "attractionTagLine": "String",
-                "attractionShortTagLine": "String",
-                "attractionThumbnailUrl": "String",
-                "attractionCountry": "String",
-                "attractionState": "String",
-                "price": "Integer",
-                "numberOfHours": "Integer"
-            }
-        ],
-        "bestTourOffers": [
-            {
-                "tourId": "String",
-                "tourTagLine": "String",
-                "tourShortTagLine": "String",
-                "country": "String",
-                "state": "String",
-                "rating": "String",
-                "pricePerPerson": "Integer"
-            }
-        ]
 
     }
 

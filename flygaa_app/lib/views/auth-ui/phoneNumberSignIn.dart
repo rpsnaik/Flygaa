@@ -103,9 +103,11 @@ class _PhonNumberSignInPageState extends State<PhonNumberSignInPage> {
                   children: <Widget>[
                     Center(
                       child: CountryCodePicker(
+                        
                         searchDecoration: InputDecoration(
-                          labelText: "Search for your Country !",
+                          labelText: "Search for your Country Code !",
                         ),
+                        
                         onChanged: (CountryCode countryCode){
                           setState(() {
                             phoneNumberCountry = countryCode;

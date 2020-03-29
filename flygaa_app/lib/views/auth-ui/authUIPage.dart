@@ -11,10 +11,15 @@ class _AuthUIPageState extends State<AuthUIPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Text("Welcome to Flygaa"),
+            SizedBox(
+              height: 20.0,
+            ),
             RaisedButton(
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>PhonNumberSignInPage()));
@@ -33,3 +38,4 @@ class _AuthUIPageState extends State<AuthUIPage> {
     );
   }
 }
+

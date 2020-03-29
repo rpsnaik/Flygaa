@@ -43,7 +43,7 @@ class GoogleAuth{
 
       auth.getCurrentUserInfo().then((FirebaseUser user){
         print("Logged in as : "+user.displayName);
-        AccountFun().checkBeforeGngtoHomePage(user);
+        AccountFun().checkBeforeGngtoHomePage(context, user);
       });
       
 

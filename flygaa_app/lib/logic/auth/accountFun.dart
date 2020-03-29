@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flygaa_app/views/auth-ui/authUIPage.dart';
 import 'package:flygaa_app/views/home/homepage.dart';
-import 'package:flygaa_app/views/somethingWentWrong/somethingWentWrongPage.dart';
+import 'package:flygaa_app/views/profile/getBasicInfoPage.dart';
 
 class AccountFun{
 
@@ -14,64 +14,55 @@ class AccountFun{
         // Redirect to Sign In Page
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>AuthUIPage()));
       }else{
-        checkBeforeGngtoHomePage(user).then((bool redirectFlag){
-          if(redirectFlag){
-            // Redirect To HomePage
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomePage()));
-          }else{
-            // Something went wrong page
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SomethingWentWrongPage()));
-          }
-        }).catchError((e){
-          print(e);
-        });
+        checkBeforeGngtoHomePage(context, user);
       }
     }).catchError((e){
       print(e);
     });
   }
 
-  Future<bool> firestoreAccountVerifier(FirebaseUser userRef)async{
-    bool accountFlag = false;
+  Future<DocumentSnapshot> firestoreAccountVerifier(FirebaseUser userRef)async{
+    DocumentSnapshot docData;
     await Firestore.instance.collection("users").document(userRef.uid).get().then((DocumentSnapshot snapData){
       if(snapData.exists){
-        accountFlag = true;
+        docData = snapData;
       }
     }).catchError((e){
       print(e);
     });
 
-    return accountFlag;
+    return docData;
   }
 
-  Future<bool> checkBeforeGngtoHomePage(FirebaseUser user)async{
-    bool checkFlag = false;
-    if(await firestoreAccountVerifier(user)){
+  void checkBeforeGngtoHomePage(BuildContext context, FirebaseUser user)async{
+    DocumentSnapshot userDoc = await firestoreAccountVerifier(user);
+    if(userDoc != null){
       // Redirect to HomePage
-      checkFlag = true;
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomePage(userData: userDoc,)));
     }else{
       //Set User Details in Firestore and Redirect to HomePage
-      setUserDataOnFirestore(user).then((bool dataSetFlagRef){
-        checkFlag = dataSetFlagRef;
-      }).catchError((e){
-        print(e);
-      });
+      // setUserDataOnFirestore(user).then((bool dataSetFlagRef){
+      //   checkFlag = dataSetFlagRef;
+      // }).catchError((e){
+      //   print(e);
+      // });
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>GetBasicInfo(user: user,)));
     }
-
-    return checkFlag;
   }
 
-  Future<bool> setUserDataOnFirestore(FirebaseUser user)async{
+  Future<bool> setUserDataOnFirestore(FirebaseUser user, String name, String emailId, String picUrl, String gender, Timestamp dob)async{
     bool isDataSet = false;
+
+
     await Firestore.instance.collection("users").document(user.uid).setData({
       
       "uid": user.uid,
-      "name": user.displayName,
-      "dateOfBirth": null,
+      "name": name,
+      "dateOfBirth": dob,
       "phoneNumber": user.phoneNumber,
-      "emailId": user.email,
-      "gender": null,
-      "userProfileImage": user.photoUrl,
+      "emailId": emailId,
+      "gender": gender,
+      "userProfileImage": picUrl,
 
       "governmentId": null,
       "emergencyContact": null,
