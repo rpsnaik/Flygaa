@@ -1,0 +1,62 @@
+{   
+    // Task - Add New Tour info to Verification Queue!
+    "tours": [
+        // List of Documents
+        {
+            "isApproved": "Boolean",
+            "isDenied": "Boolean",
+            "activeStatus": "Boolean",
+            "tourCreatedOn": "Timestamp",
+            "pickUpAddress": {
+                "addressLine1": "String",
+                "addressLine2": "String",
+                "city": "String",
+                "pincode": "String",
+                "district": "String",
+                "state": "String"
+            },
+
+            "tourTagLine": "String",
+            "tourShortTagLine": "String",
+            "tourToDestination": "String",
+            "whatWeWillBeDoing": "String",
+            "pricePerPerson": "Integer",
+            "offerPricePerPerson": "Integer",
+
+            "tourOfferedByOrganization": "String (UID)",
+            
+            "itinerary": [
+                // Subdocument
+                {
+                    "day": "Integer (1, 2, 3...)",
+                    "title": "String",
+                    "imgLink": "String (URL)",
+                    "whatWeWillDo": "String"
+                }
+            ],
+            "featuredPics": [
+                // Array<Map>
+                {
+                    "featuredImageUrl": "String",
+                    "featuredTitle": "String"
+                }
+            ],
+            "categories": [
+                // Array<Map>
+                {
+                    "categoryTitle": "String"
+                }
+            ],
+            "durationOfTour": "Integer (Hrs)",
+            "hostedInLanguages": [
+                // Array<Map>
+                {
+                    "languageCode": "String (LanguageCode)"
+                }
+            ],
+            "yourGuideId": "String",
+            "guideWordsOnThisTrip": "String",
+            "policiesIncluded": "Array<PolicyId>"
+        }
+    ]
+}

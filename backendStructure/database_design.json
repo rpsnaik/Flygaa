@@ -1,7 +1,7 @@
 {
     "users": [
-        // SubDocuments
         {
+            "dataType": "SubDocuments",
             "uid": "String",
             "name": "String",
             "dateOfBirth": "TimeStamp",
@@ -280,6 +280,9 @@
     "tours": [
         // SubDocument
         {
+            "isApproved": "Boolean",
+            "tourCreatedOn": "Timestamp",
+
             "tourId": "String",
             "tourTagLine": "String",
             "tourShortTagLine": "String",
@@ -287,6 +290,8 @@
             "whatWeWillBeDoing": "String",
             "pricePerPerson": "Integer",
             "offerPricePerPerson": "Integer",
+
+            "tourOfferedByOrganization": "String (UID)",
         
             "itinerary": [
                 // Subdocument
@@ -413,3 +418,5 @@
 // TODO :: Make JSON Representation of Languages
 // TODO :: Make JSON Representation of Policies
 // TODO :: Make IdRef for Identity verification
+
+// Popular Expreiences
