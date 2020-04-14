@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flygaa_tour_organizer_app/views/auth/loginPage.dart';
 import 'package:flygaa_tour_organizer_app/views/auth/register.dart';
 
 class AuthPage extends StatefulWidget {
@@ -24,7 +25,9 @@ class _AuthPageState extends State<AuthPage> {
                 child: Text("Register"),
               ),
               RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                },
                 child: Text("Login"),
               )
             ],

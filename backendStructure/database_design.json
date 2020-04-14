@@ -51,6 +51,63 @@
             ]
         }
     ],
+
+    "serviceAgentsDetails": [
+        // SubDocs
+        {
+            "uid": "String",
+            "emailId": "String",
+            "legalName": "String",
+            "locationsOfOffice": "Array<String - Location City Name>",
+            "logoUrl": "String",
+            "contactNumbers": "Array<String> - Phone Numbers",
+            "aboutService": "String (500 chars)"
+        }
+    ],
+
+    "tours": [
+        // SubDocs
+        {
+            "isApproved": "Boolean",
+            "tourCreatedOn": "Timestamp",
+            "active": "Boolean",
+
+            "tourId": "String",
+            "tourTagLine": "String",
+            "tourShortTagLine": "String",
+            "tourToDestination": "String - Location Id",
+            "whatWeWillBeDoing": "String",
+            
+            "fromLocation": "String - Location Id",
+
+            "tourOfferedByOrganization": "String (UID)",
+        
+            "itinerary": [
+                // Subdocument
+                {
+                    "day": "Integer (1, 2, 3...)",
+                    "title": "String",
+                    "imgLink": "String (URL)",
+                    "whatWeWillDo": "String (100 chars)"
+                }
+            ],
+            "featuredPics": [
+                // Array<Map>
+                {
+                    "featuredImageUrl": "String",
+                    "featuredTitle": "String"
+                }
+            ],
+            "keywords": "Array<String - Keyvalues>",
+            "durationOfTour": "Integer (Hrs)",
+            "hostedInLanguages": "Array<String - Language Name>",
+        
+            "guideWordsOnThisTrip": "String (150 chars)"
+    
+        }
+    ],
+
+
     "tourBookings": [
         // SubDocuments
         {
@@ -334,89 +391,7 @@
             "policyShortDes": "String",
             "policyCompleteDes": "String"
         }
-    ],
-
-
-
-
-    // DataforApp UI Floating in HomePage
-
-    "appDataUIModel": {
-        // SubDocumets - Related to Destinations
-
-        "destinationData": {
-            "popularDestinations": [
-                {
-                    "destinationId": "String",
-                    "destinationName": "String",
-                    "thumbnail": "String",
-                    "state": "String",
-                    "country": "String",
-                    "tagLine": "String"
-                }
-            ]
-        },
-
-        // SubDocuemt - Related to Tours
-
-        "touristData": {
-            "popularAttractions": [
-                {
-                    "attractionId": "String",
-                    "attractionTagLine": "String",
-                    "attractionShortTagLine": "String",
-                    "attractionThumbnailUrl": "String",
-                    "attractionCountry": "String",
-                    "attractionState": "String",
-                    "pricePerPerson": "Integer",
-                    "numberOfHours": "Integer"
-                }
-            ],
-            "popularTours": [
-                {
-                    "tourId": "String",
-                    "tourTagLine": "String",
-                    "tourShortTagLine": "String",
-                    "country": "String",
-                    "state": "String",
-                    "rating": "String",
-                    "pricePerPerson": "Integer"
-                }
-            ],
+    ]
     
-            "bestAttractionOffers": [
-                {
-                    "attractionId": "String",
-                    "attractionTagLine": "String",
-                    "attractionShortTagLine": "String",
-                    "attractionThumbnailUrl": "String",
-                    "attractionCountry": "String",
-                    "attractionState": "String",
-                    "price": "Integer",
-                    "numberOfHours": "Integer"
-                }
-            ],
-            "bestTourOffers": [
-                {
-                    "tourId": "String",
-                    "tourTagLine": "String",
-                    "tourShortTagLine": "String",
-                    "country": "String",
-                    "state": "String",
-                    "rating": "String",
-                    "pricePerPerson": "Integer"
-                }
-            ]
-        }
-
-
-    }
-
     
 }
-
-// TODO :: Make JSON Representation of Languages
-// TODO :: Make JSON Representation of Policies
-// TODO :: Make IdRef for Identity verification
-
-// Popular Expreiences
